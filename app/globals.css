@@ -18,12 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(0, 0, 0)
 }
 
  
@@ -50,7 +45,7 @@ body {
   }
 
   .section-text {
-    @apply text-secondary text-[32px] font-semibold;
+    @apply   text-[32px] font-semibold;
   }
 
   .small-text {
@@ -120,7 +115,7 @@ body {
   }
 
   .dialog-head_text {
-    @apply text-secondary text-lg leading-[24px] font-semibold mt-4;
+    @apply   text-lg leading-[24px] font-semibold mt-4;
   }
 
   .dialog-input_container {
@@ -141,7 +136,7 @@ body {
   }
 
   .nav-logo {
-    @apply font-spaceGrotesk text-[21px] text-secondary font-bold;
+    @apply font-spaceGrotesk text-[21px] font-bold;
   }
 
   /* PRICE INFO */
@@ -163,7 +158,7 @@ body {
   }
 
   .product-title {
-    @apply text-secondary text-xl leading-6 font-semibold truncate;
+    @apply   text-xl leading-6 font-semibold truncate;
   }
 
   /* SEARCHBAR INPUT */
