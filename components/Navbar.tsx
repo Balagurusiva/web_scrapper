@@ -18,6 +18,7 @@ const Navbar = () => {
                  width={27}
                  height={27}
                  alt='logo'
+                 className='mt-[1px]'
                />
                <p className="nav-logo">
                 Data<span className='text-primary'>Chisel</span>
