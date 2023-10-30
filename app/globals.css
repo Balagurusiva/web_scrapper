@@ -41,7 +41,7 @@ body {
   }
 
   .head-text {
-    @apply mt-4 text-6xl leading-[72px] font-bold tracking-[-1.2px] text-gray-900;
+    @apply mt-4 text-6xl leading-[72px] font-bold tracking-[-1.2px] ;
   }
 
   .section-text {
@@ -49,7 +49,7 @@ body {
   }
 
   .small-text {
-    @apply flex gap-2 text-sm font-medium text-primary;
+    @apply flex gap-2 text-sm font-medium text-cyan-500;
   }
 
   .paragraph-text {

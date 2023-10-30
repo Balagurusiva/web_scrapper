@@ -21,7 +21,7 @@ const Navbar = () => {
                  className='mt-[1px]'
                />
                <p className="nav-logo">
-                Data<span className='text-primary'>Chisel</span>
+                Data<span className='text-cyan-500'>Chisel</span>
                </p>
             </Link>
             <div className="flex items-center gap-5">
