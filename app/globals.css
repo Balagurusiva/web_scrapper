@@ -45,7 +45,7 @@ body {
   }
 
   .section-text {
-    @apply   text-[32px] font-semibold;
+    @apply   text-[32px] font-semibold ;
   }
 
   .small-text {
