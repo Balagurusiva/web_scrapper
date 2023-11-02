@@ -17,10 +17,10 @@ const HeroCarousel = () => {
     <div className='hero-carousel flex justify-center'>
         <Carousel
            showThumbs={false}
-           autoPlay
+           //autoPlay
            showIndicators={false}
            infiniteLoop
-           interval={2000}
+           //interval={2000}
            showArrows ={ false}
            showStatus = {false}
         >
