@@ -6,7 +6,7 @@ const navIcons = [
     {src:"/assets/icons/search.svg", alt: 'serach'},
     {src:"/assets/icons/white-heart.svg", alt: 'serach'},
     {src:"/assets/icons/user.svg", alt: 'serach'},
-]
+] 
 
 const Navbar = () => {
   return (
