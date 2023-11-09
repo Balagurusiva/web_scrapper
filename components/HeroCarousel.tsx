@@ -7,7 +7,7 @@ import { Carousel } from 'react-responsive-carousel' ;
 import Image from 'next/image';
 
 const HeroCarousel = () => {
-    const isRes
+     
     const heroImg = [
         {imgUrl : '/assets/images/hero-1.svg', alt : 'smartwatch'},
         {imgUrl : '/assets/images/hero-2.svg', alt : 'bag'},

@@ -18,7 +18,7 @@ export const scrapAmazonProduct = async (url: string) =>{
         rejectUnauthorized: false,
     }
 
-    try {
+    try { 
         const response =await axios.get(url, options)
         const $ = cheerio.load(response.data)
 
