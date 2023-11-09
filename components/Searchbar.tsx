@@ -6,6 +6,7 @@ import React, {useState, FormEvent}  from 'react'
 const isValidAmazonProductURL = (url : string ) => {
 
         const parseURL = new URL(url)
+        const isCreated = true
         const hostname = parseURL.hostname
         try {
             if(
