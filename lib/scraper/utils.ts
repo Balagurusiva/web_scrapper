@@ -5,3 +5,8 @@ export function extractPrice(...elements: any){
         if(priceText) return priceText.replace(/[^\d.]/g, '')
     }
 }
+
+export function extractcurrency(element : any){
+    const currencyText = element.text().trim().slice(0,1)
+    return currencyText ? currencyText : ''
+}

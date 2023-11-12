@@ -36,8 +36,17 @@ export const scrapAmazonProduct = async (url: string) =>{
             $('#priceblock_dealprice'),
             $('.a-size-bse.a-color-price')
         )
+        const images = 
+           $('#imgBlkFront').attr('data-a-dynamic-image') ||
+           $('#landingImage').attr('data-a-dynamic-image') ||
+           '{}'
 
-        console.log({title,currentPrice,originalPrice})   
+        const currency = extractcurrency($('.a-price-symbol'))
+
+        const imageUrls = Object.keys(JSON.parse(images))
+        const outOfStock = $('#availability span').text().trim().toLowerCase() === "currently unavailable"
+
+        console.log({title,currentPrice,originalPrice, outOfStock,imageUrls})   
     } catch (error : any) {
         throw new Error(`Failed to scrape product : ${error.message}`)
     }
