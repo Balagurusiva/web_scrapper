@@ -1,8 +1,10 @@
-import React from 'react'
+type props = {
+  params : {id : string}
+}
 
-const Product = () => {
+const Product = ({params:{id}}:props) => {
   return (
-    <div>Prduct</div>
+    <div>product detail {id}</div>
   )
 }
 
