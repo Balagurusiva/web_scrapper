@@ -2,8 +2,10 @@
 import React from 'react'
 import Searchbar from '../components/Searchbar'
 import HeroCarousel from '../components/HeroCarousel'
+import { getAllProducts } from '@/lib/actions'
  
- const Home = () => {
+ const Home = async () => {
+    const allProducts =await  getAllProducts()
    return (
     <> 
      <section className="px-6 md:px-20 py-14 ">
@@ -37,8 +39,8 @@ import HeroCarousel from '../components/HeroCarousel'
 
         <div className="flex flex-wrap gap-8 gap-y-16">
             {
-                ["apple", 'bala', 'asdf'].map((item) =>(
-                    <div>{item}</div>
+                allProducts?.map((item) =>(
+                    <div>{item.title}</div>
                 ))
             }
         </div>

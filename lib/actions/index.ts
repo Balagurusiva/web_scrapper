@@ -56,3 +56,15 @@ export async function getProductDetail(productId:string){
         console.log(error)
     }
 }
+
+export async function getAllProducts(){
+    try {
+        connectToDB()
+
+        const allProducts = Product.find({})
+        if(!allProducts) return null
+        return allProducts
+    } catch (error) {
+        console.log(error)
+    }
+}
