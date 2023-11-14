@@ -3,6 +3,7 @@ import React from 'react'
 import Searchbar from '../components/Searchbar'
 import HeroCarousel from '../components/HeroCarousel'
 import { getAllProducts } from '@/lib/actions'
+import ProductCard from '@/components/ProductCard'
  
  const Home = async () => {
     const allProducts =await  getAllProducts()
@@ -39,8 +40,8 @@ import { getAllProducts } from '@/lib/actions'
 
         <div className="flex flex-wrap gap-8 gap-y-16">
             {
-                allProducts?.map((item) =>(
-                    <div>{item.title}</div>
+                allProducts?.map((product) =>(
+                     <ProductCard  key={product._id}  product = {product}/>
                 ))
             }
         </div>
