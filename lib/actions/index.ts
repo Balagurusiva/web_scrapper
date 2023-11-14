@@ -1,7 +1,5 @@
 "use server"
-
-import { revalidatePath } from "next/cache";
-import { connect } from "http2";
+import { revalidatePath } from "next/cache"; 
 import { scrapAmazonProduct } from "../scraper";
 import { connectToDB } from "../scraper/mogoose";
 import Product from "../models/product.model";
@@ -44,5 +42,17 @@ export async function scrapAndStoreProduct(productUrl : string){
         revalidatePath(`/products/$(newProduct._id)`)
     } catch (error: any) {
         throw new Error(`failed to create/update : ${error.message}`)
+    }
+}
+
+export async function getProductDetail(productId:string){
+    try {
+        connectToDB()
+
+        const product = await Product.findOne({_id:productId})
+        if(!product) return null
+        return product
+    } catch (error) {
+        console.log(error)
     }
 }
