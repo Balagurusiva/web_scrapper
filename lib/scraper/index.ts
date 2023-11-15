@@ -46,6 +46,7 @@ export const scrapAmazonProduct = async (url: string) =>{
         const imageUrls = Object.keys(JSON.parse(images))
         const outOfStock = $('#availability span').text().trim().toLowerCase() === "currently unavailable"
         const description = extractDescription($)
+        const reviewCount =120
 
         const data = {
             url,
@@ -54,10 +55,10 @@ export const scrapAmazonProduct = async (url: string) =>{
             title,
             currentPrice:Number(currentPrice) || Number(originalPrice),
             originalPrice:Number(originalPrice) || Number(currentPrice),
-            priceHistory:[],
+            priceHistory:['item1', 'item2'],
             discountRate:Number(discountRate),
             category:"category",
-            reviewsCount:0,
+            reviewCount:Number(reviewCount),
             stars:4.5,
             isOutOfStock:outOfStock,
             description,
@@ -65,8 +66,6 @@ export const scrapAmazonProduct = async (url: string) =>{
             higestPrice:Number(originalPrice) || Number(currentPrice),
             average:Number(currentPrice) || Number(originalPrice),
         }
-        console.log(data)
-        console.log({title,currentPrice,originalPrice, outOfStock,imageUrls,currency,discountRate})   
         return data
     } catch (error : any) {
         throw new Error(`Failed to scrape product : ${error.message}`)
