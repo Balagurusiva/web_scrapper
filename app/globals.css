@@ -86,7 +86,7 @@ body {
   }
 
   .product-image {
-    @apply flex-grow xl:max-w-[50%] max-w-full bg-white  border border-[#CDDBFF] rounded-[17px];
+    @apply flex xl:max-w-[50%] max-w-full bg-white  border border-[#CDDBFF] rounded-[17px];
   }
 
   .product-info {

@@ -1,4 +1,5 @@
 import { getProductById  } from "@/lib/actions"
+import { formatNumber } from "@/lib/scraper/utils"
 import { redirect } from "next/dist/server/api-utils"
 import Image from "next/image"
 import Link from "next/link"
@@ -18,9 +19,9 @@ const Product = async ({params:{id}}:props) => {
                 <Image 
                    src = {product.image}
                    alt = {product.title}
-                   width = {250}
+                   width = {300}
                    height={250}
-                   className ='mx-auto object-contain'
+                   className ='  mx-auto my-auto object-contain'
                 />
             </div>
             <div className="flex-1 flex flex-col ">
@@ -70,7 +71,56 @@ const Product = async ({params:{id}}:props) => {
                     </div>
 
                     <div className="product-info">
-                        
+                        <div className="flex flex-col gap-2">
+                            <p className="text-[34px] text-white-100 font-bold">
+                                {product.currency} {formatNumber(product.currentPrice) }
+                            </p>
+
+                            <p className="text-[21px] text-white-100 font-bold opacity-50 line-through">
+                                {product.currency} {formatNumber(product.originalPrice) }
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col gap-4">
+                            <div className="flex">
+                                <div className="product-stars">
+                                    <Image 
+                                      src = '/assets/icons/star.svg'
+                                      alt = 'star'
+                                      width={16}
+                                      height={16}
+                                    />
+                                    <p className="text-sm text-primary-orange font-semibold">
+                                        {product.stars || '25'}
+                                    </p>
+                                </div>
+
+                                <div className="product-reviews">
+                                    <Image 
+                                      src = '/assets/icons/comment.svg'
+                                      alt = 'review'
+                                      width={16}
+                                      height={16}
+                                    />
+                                    <p className="text-sm text-secondary font-semibold">
+                                        {product.reviewCount} Reviews
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p className="text-sm text-white  ">
+                                <span className="text-[#8bf58b] font-semibold">93% </span> of
+                                buyers have recommended this.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="">
+                        <div className="my-7 flex flex-col gap-5">
+                            <div className="flex gap-5 flex-wrap">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
