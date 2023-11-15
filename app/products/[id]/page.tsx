@@ -37,7 +37,7 @@ const Product = async ({params:{id}}:props) => {
                             Visit Product
                         </Link>
 
-                        {/* <div className="flex items-center gap=3">
+                        <div className="flex items-center gap=3">
                             <div className="product-hearts">
                                 <Image 
                                   src = '/assets/icons/red-heart.svg'
@@ -48,7 +48,7 @@ const Product = async ({params:{id}}:props) => {
 
                                 <p className="text-base font-semibold text-[#e15c67]">{product.reviewCount}</p>
                             </div>
-                        </div> */}
+                        </div> 
                     </div>
                 </div>
             </div>

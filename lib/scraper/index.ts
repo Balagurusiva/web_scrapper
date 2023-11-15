@@ -55,7 +55,7 @@ export const scrapAmazonProduct = async (url: string) =>{
             title,
             currentPrice:Number(currentPrice) || Number(originalPrice),
             originalPrice:Number(originalPrice) || Number(currentPrice),
-            priceHistory:['item1', 'item2'],
+            priceHistory:[],
             discountRate:Number(discountRate),
             category:"category",
             reviewCount:Number(reviewCount),
