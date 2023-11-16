@@ -1,3 +1,4 @@
+import PriceInfoCard from "@/components/PriceInfoCard"
 import { getProductById  } from "@/lib/actions"
 import { formatNumber } from "@/lib/scraper/utils"
 import { redirect } from "next/dist/server/api-utils"
@@ -115,16 +116,65 @@ const Product = async ({params:{id}}:props) => {
                         </div>
                     </div>
 
-                    <div className="">
-                        <div className="my-7 flex flex-col gap-5">
-                            <div className="flex gap-5 flex-wrap">
-                                
-                            </div>
+                    <div className="my-7 flex flex-col gap-5">
+                        <div className="flex gap-5 flex-wrap">
+                             <PriceInfoCard 
+                                 title = "Current Price"
+                                 iconSrc = '/assets/icons/price-tag.svg'
+                                 value = {`${product.currency} ${formatNumber(product.currentPrice)}`} 
+                             />
+                        </div>
+                    </div>
+
+                    <div className="my-7 flex flex-col gap-5">
+                        <div className="flex gap-5 flex-wrap">
+                             <PriceInfoCard 
+                                 title = "Average Price"
+                                 iconSrc = '/assets/icons/chart.svg'
+                                 value = {`${product.currency} ${formatNumber(product.averagePrice)}`} 
+                             />
+                        </div>
+                    </div>
+
+                    <div className="my-7 flex flex-col gap-5">
+                        <div className="flex gap-5 flex-wrap">
+                             <PriceInfoCard 
+                                 title = "Heighest Price"
+                                 iconSrc = '/assets/icons/arrow-up.svg'
+                                 value = {`${product.currency} ${formatNumber(product.hightestPrice)}`} 
+                             />
+                        </div>
+                    </div>
+
+                    <div className="my-7 flex flex-col gap-5">
+                        <div className="flex gap-5 flex-wrap">
+                             <PriceInfoCard 
+                                 title = "Lowest Price"
+                                 iconSrc = '/assets/icons/arrow-down.svg'
+                                 value = {`${product.currency} ${formatNumber(product.lowestPrice)}`} 
+                             />
                         </div>
                     </div>
                 </div>
-            </div>
+                model
+            </div>     
         </div>
+        <div className="flex flex-col gap-16 ">
+                <div className="felx flex-col gap-5">
+                    <h3 className="text-2xl   font-semibold">
+                        Product Description
+                    </h3>
+
+                    <div className="flex flex-col gap-4">
+                        {product?.description?.split('.')}
+                    </div>
+
+                    <button className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]">
+                        <Image src='/assets/icons/bag.svg' alt='check' width={22} height={22} />
+                        <Link href='/' className="text-base text-white"> Buy now</Link>
+                    </button>
+                </div>
+            </div>
       </div>
   )
 }
