@@ -2,7 +2,11 @@ import React from 'react'
 
 const Model = () => {
   return (
-    <div>Model</div>
+     <>
+         <button className='btn' type = 'button'>Track</button>
+
+         
+     </>
   )
 }
 
