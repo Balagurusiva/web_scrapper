@@ -2,6 +2,7 @@ import PriceInfoCard from "@/components/PriceInfoCard"
 import ProductCard from "@/components/ProductCard"
 import { getProductById, getsimilarProducts  } from "@/lib/actions"
 import { formatNumber } from "@/lib/scraper/utils"
+import { Model } from "mongoose"
 import { redirect } from "next/dist/server/api-utils"
 import Image from "next/image"
 import Link from "next/link"
@@ -161,7 +162,7 @@ const Product = async ({params:{id}}:props) => {
                         </div>
                     </div>
                 </div>
-                model
+                <Model />
             </div>     
         </div>
         <div className="flex flex-col gap-16 ">
