@@ -1,20 +1,20 @@
+"use server"
+
 import {EmailContent, EmailProductInfo, NotificationType} from '@/types'
 import nodemailer from 'nodemailer'
 
-export const THRESHOLD_PERCENTAGE = 40
-export const Notification = {
+ 
+const Notification = {
     WELCOME :"WELCOME",
     CHANGE_OF_STOCK: "CHANGE_OF_STOCK",
     LOWEST_PRICE : "LOWEST_PRICE",
     THRESHOLD_MET : "THRESHOLD_MET"
 }
 
-export async function generateEmailBody(
-  product: EmailProductInfo,
-  type: NotificationType
+export async function generateEmailBody(product: EmailProductInfo,type: NotificationType
   ) {
-  const THRESHOLD_PERCENTAGE = 40;
-  // Shorten the product title
+  const THRESHOLD_PERCENTAGE = 40
+ 
   const shortenedTitle =
     product.title.length > 20
       ? `${product.title.substring(0, 20)}...`
@@ -85,20 +85,20 @@ const transporter = nodemailer.createTransport({
     port :2525,
     auth:{
         user:'datachisel@outlook.com',
-        pass:'process.env.EMAIL_PASSWORD',
+        pass:process.env.EMAIL_PASSWORD,
     },
     maxConnections:1
 })
 
 export const sendEmail = async (emailContent : EmailContent, sendTo:string[]) =>{
     const mailOptions = {
-        from:'',
+        from:'datachisel@outlook.com',
         to:sendTo,
         html:emailContent.body,
         subject:emailContent.subject
 
     }
-    transporter.sendEmail(mailOptions,(error:any, info:any) =>{
+    transporter.sendMail(mailOptions,(error:any, info:any) =>{
         if(error) return console.log(error)
 
         console.log("Email sent :  ", info)

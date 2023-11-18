@@ -162,7 +162,7 @@ const Product = async ({params:{id}}:props) => {
                         </div>
                     </div>
                 </div>
-                <Model />
+                <Model  productId = {id}/>
             </div>     
         </div>
         <div className="flex flex-col gap-16 ">

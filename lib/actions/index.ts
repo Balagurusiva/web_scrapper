@@ -5,7 +5,7 @@ import { connectToDB } from "../scraper/mogoose";
 import Product from "../models/product.model";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "../scraper/utils";
 import { User } from "@/types";
-import { generateEmailBody } from "../nodemailer";
+import { generateEmailBody, sendEmail } from "../nodemailer";
 
 export async function scrapAndStoreProduct(productUrl : string){
     if(!productUrl) return;
@@ -96,13 +96,13 @@ export async function addUserEmailToProduct(productid : string, userEmail:string
         const userExists = product.users.some((user : User) => user.email === userEmail)
 
         if(!userExists){
-            product.userspush({email:userEmail})
+            product.users.push({email:userEmail})
 
             await product.save()
 
-            const emailContent = generateEmailBody(product, "WELCOME")
+            const emailContent = await generateEmailBody(product, "WELCOME")
 
-            await sendEmail(emailContent, [userEmail])
+            await sendEmail( emailContent, [userEmail])
         }
     } catch (error) {
         console.log(error)
