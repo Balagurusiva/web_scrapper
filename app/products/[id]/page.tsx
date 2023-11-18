@@ -3,7 +3,7 @@ import PriceInfoCard from "@/components/PriceInfoCard"
 import ProductCard from "@/components/ProductCard"
 import { getProductById, getsimilarProducts  } from "@/lib/actions"
 import { formatNumber } from "@/lib/scraper/utils"
-import { redirect } from "next/dist/server/api-utils"
+import { redirect } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 
