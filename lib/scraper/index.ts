@@ -63,8 +63,8 @@ export const scrapAmazonProduct = async (url: string) =>{
             isOutOfStock:outOfStock,
             description,
             lowestPrice:Number(currentPrice) || Number(originalPrice),
-            higestPrice:Number(originalPrice) || Number(currentPrice),
-            average:Number(currentPrice) || Number(originalPrice),
+            highestPrice:Number(originalPrice) || Number(currentPrice),
+            averagePrice:Number(currentPrice) || Number(originalPrice),
         }
         return data
     } catch (error : any) {
