@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
+ 
+import { connectToDB } from "@/lib/scraper/mogoose";
 import Product from "@/lib/models/product.model";
 import { scrapAmazonProduct } from "@/lib/scraper";
 import { generateEmailBody, sendEmail } from "@/lib/nodemailer";
-import { connectToDB } from "@/lib/scraper/mogoose";
 import { getAveragePrice, getEmailNotifType, getHighestPrice, getLowestPrice } from "@/lib/scraper/utils";
+ 
+ 
 
 export const maxDuration = 10; // This function can run for a maximum of 300 seconds
 export const dynamic = "force-dynamic";
@@ -21,7 +24,7 @@ export async function GET(request: Request) {
     const updatedProducts = await Promise.all(
       products.map(async (currentProduct) => {
         // Scrape product
-        const scrapedProduct = await scrapAmazonProduct (currentProduct.url);
+        const scrapedProduct = await scrapAmazonProduct(currentProduct.url);
 
         if (!scrapedProduct) return;
 
@@ -48,8 +51,11 @@ export async function GET(request: Request) {
           product
         );
 
- 
-        const emailNotifType = getEmailNotifType(scrapedProduct,currentProduct);
+        // ======================== 2 CHECK EACH PRODUCT'S STATUS & SEND EMAIL ACCORDINGLY
+        const emailNotifType = getEmailNotifType(
+          scrapedProduct,
+          currentProduct
+        );
 
         if (emailNotifType && updatedProduct.users.length > 0) {
           const productInfo = {
