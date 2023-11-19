@@ -1,8 +1,11 @@
+"use server"
+
 import axios from 'axios'
 import * as cheerio from 'cheerio'
 import { extractCurrency, extractDescription, extractPrice  } from './utils'
 
 export const scrapAmazonProduct = async (url: string) =>{
+    if(!url) return
 
     const userName = String(process.env.BRIGHT_DATA_USERNAME)
     const password = String(process.env.BRIGHT_DATA_PASSWORD)
@@ -68,7 +71,7 @@ export const scrapAmazonProduct = async (url: string) =>{
         }
         return data
     } catch (error : any) {
-        throw new Error(`Failed to scrape product : ${error.message}`)
+         console.log(error)
     }
 
 }
