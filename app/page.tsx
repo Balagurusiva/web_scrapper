@@ -23,7 +23,7 @@ import ProductCard from '@/components/ProductCard'
                 </p>
                 <h1 className="head-text">
                     unleassh the power of 
-                    <span className="text-cyan-500"> PriceWise</span>
+                    <span className="text-cyan-500"> DataChisel</span>
                 </h1>
 
                 <p className="mt-6">
